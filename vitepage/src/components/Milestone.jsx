@@ -1,7 +1,6 @@
 import PDFView from './PDFView';
 import DemoVideo from './DemoVideo';
 import './styles/Milestone.css';
-import { useState } from 'react';
 
 // all have Presentation, Progress Evaluation at the end
 // 1 - Requirement, Design
@@ -12,6 +11,8 @@ import { useState } from 'react';
 // 6 - User and/or Developer Manual, Demo Video
 
 const Milestone = ({ id }) => {
+
+    let presentationID = id > 4 ? id - 1 : id; 
 
     const getVideoAndReport = (id) => {
         const obj = {
@@ -106,7 +107,16 @@ const Milestone = ({ id }) => {
                 {/* Right side content */}
                 <div className='milestone-right'>
                     {/* UPDATE COVER IMAGE WHEN PRESENTATIONS ARE REDONE */}
-                    <PDFView fileName={`milestone${id}.pdf`} docName="Presentation" coverImage="/documents/presentation.png"/>
+                    <PDFView 
+                        fileName={ 
+                            id === 0 ? 
+                            'plan1Pres.pdf' : (
+                                id === 4 ? 'plan2Pres.pdf' : `milestone${presentationID}.pdf`
+                            ) 
+                        }
+                        docName="Presentation" 
+                        coverImage="/documents/presentation2.png"
+                    />
                     <h4 style={{margin: '8px 0 24px 0'}}>Presentation</h4>
 
                     {getVideoAndReport(id).report &&

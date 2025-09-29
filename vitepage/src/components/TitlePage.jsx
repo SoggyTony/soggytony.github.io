@@ -7,7 +7,7 @@ const TitlePage = () => {
                 <span className='blink'> :</span> 
             </h1>
             <h1> <span className='text-gradient'>Time</span> Estimation </h1>
-            <p> Simplify your time management with accurate and intuitive time estimation tools. </p>
+            <p> Improve your time estimation skills with our application! </p>
 
             <div className='title-buttons'>
                 <button onClick={() => document.getElementById('milestones-section').scrollIntoView({ behavior: 'smooth' })}>

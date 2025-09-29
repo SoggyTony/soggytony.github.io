@@ -6,6 +6,8 @@ const openDocument = (fileName) => {
 };
 
 const PDFView = ({ fileName, docName, coverImage }) => {
+  console.log(fileName);
+  
   const [isHovered, setIsHovered] = useState(false);
   const titleSplit = docName.split(' ');
 
@@ -35,7 +37,7 @@ const PDFView = ({ fileName, docName, coverImage }) => {
           <h5>{titleSplit[2]}</h5> {/* Milestone Number (if applicable) */}
           <h6 
             style={{
-              color: '#6888f2',
+              color: 'var(--secondary)',
               opacity: isHovered ? 1 : 0,
               overflow: 'hidden',
               transition: 'max-height 0.3s ease, opacity 0.3s ease'

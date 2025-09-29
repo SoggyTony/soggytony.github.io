@@ -16,6 +16,7 @@
 .timeline-bar {
     position: relative;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
@@ -33,22 +34,28 @@
     transition: background-color 0.3s ease;
 }
 
+.timeline-segment {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
 .timeline-milestone {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
     justify-content: space-between;
     flex: 1;
+    gap: 12px;
     color: var(--text-light);
-    padding: 24px;
-    margin: 0 8px;
+    padding: 16px 24px;
     height: 40px;
+    margin: 0 8px;
     background: linear-gradient(45deg, var(--primary), var(--secondary) 100%);
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
-    z-index: 2;
 }
 
 .timeline-milestone:nth-child(4n+1) { /* Hits the Sem 1 and Sem 2 boxes */
@@ -67,7 +74,7 @@
 .timeline-milestone.active {
     color: var(--text-light);
     background: var(--accent);
-    transform: translateY(24px);
+    transform: translateY(25px);
 }
 
 .timeline-milestone.active:hover {
@@ -78,9 +85,17 @@
     line-height: 110%;
 }
 
+.timeline-date.active {
+    transform: translateY(25px);
+}
+
+.timeline-date {
+    transition: all 0.3s ease;
+}
+
 .timeline-milestone-number {
     display: flex;
-    align-items: center; /* vertical centering */
-    justify-content: center; /* horizontal centering */
+    align-items: center;
+    justify-content: center;
     height: fit-content;
 }
